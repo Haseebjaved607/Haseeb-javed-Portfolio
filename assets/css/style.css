@@ -1861,57 +1861,57 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+.avatar-box {
+  position: relative;
+  width: 145px; /* Default size */
+  height: 145px;
+  border-radius: 40px; /* Square with rounded edges */
+  overflow: hidden;
+  display: flex; /* Center content */
+  justify-content: center;
+  align-items: center;
+}
+
 .image-container {
   position: relative;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-}
-.image-container img {
   width: 100%;
   height: 100%;
-  transition: opacity 0.5s ease;
 }
-.image-container:hover img {
-  opacity: 0;
+
+.image-container img {
+  display: block;
+  width: 100%; /* Ensure images scale properly */
+  height: 100%;
+  object-fit: cover;
+  border-radius: 40px; /* Match avatar-box */
 }
-.image-container:hover .hover-image {
-  opacity: 1;
-}
+
 .hover-image {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+  opacity: 0; /* Initially hidden */
   transition: opacity 0.5s ease;
 }
 
-
-.showcase {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  margin: 20px;
-}
-.showcase-item {
-  width: calc(50% - 20px); /* Display 2 items per row */
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-.showcase-item img {
-  max-width: 100%;
-  height: auto;
+.image-container:hover .hover-image {
+  opacity: 1; /* Show on hover */
 }
 
-/* Media query for phone view */
-@media only screen and (max-width: 600px) {
-  .showcase-item {
-      width: 100%; /* Display 1 item per row */
+/* Responsive: Adjust avatar size for smaller devices */
+@media (max-width: 768px) {
+  .avatar-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+  }
+}
+/* Tablet mode: Increase avatar size */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .avatar-box {
+    width: 110px; /* Larger size for tablet mode */
+    height: 110px;
+    border-radius: 25px; /* Maintain square with rounded edges */
   }
 }

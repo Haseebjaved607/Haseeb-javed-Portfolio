@@ -1,11 +1,7 @@
 'use strict';
 
-
-
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
-
-
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
@@ -155,5 +151,15 @@ for (let i = 0; i < navigationLinks.length; i++) {
       }
     }
 
+  });
+}
+
+const avatarBox = document.querySelector(".image-container");
+const hoverImage = document.querySelector(".hover-image");
+
+// Add click functionality for touch devices
+if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+  avatarBox.addEventListener("click", () => {
+    hoverImage.style.opacity = hoverImage.style.opacity === "1" ? "0" : "1";
   });
 }
